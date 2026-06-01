@@ -1,17 +1,23 @@
-Meter Image Review Tool
+# Meter Image Review Tool
 
-A lightweight Streamlit application for reviewing electricity meter images and recording manual remarks against each entry in an Excel sheet.
+A Streamlit-based application for reviewing electricity meter images and recording manual remarks against each entry in an Excel sheet.
 
-Features
-Review meter images one by one
-Enter free-text remarks
-Press Enter to save and move to the next entry
-Progress tracking
-Resume from the last reviewed entry
-Jump to a specific entry
-Local image storage for fast navigation
-Automatic saving to Excel
-Project Structure
+## Features
+
+- Review meter images one by one
+- Enter free-text remarks
+- Press **Enter** to save and move to the next entry
+- Resume from the last reviewed entry
+- Jump to a specific entry
+- Progress tracking
+- Local image storage for fast image loading
+- Automatic saving of remarks to Excel
+
+---
+
+## Project Structure
+
+```text
 project/
 │
 ├── meter_review_app.py
@@ -28,59 +34,120 @@ project/
 │
 ├── TSECL_1001101_F004_202506_LOCAL.xlsx
 └── TSECL_1001101_F004_202506_REVIEWED.xlsx
-Installation
-1. Clone the Repository
+```
+
+---
+
+## Installation
+
+### 1. Clone the Repository
+
+```bash
 git clone <repository-url>
 cd <repository-folder>
-2. Create Virtual Environment
+```
+
+### 2. Create a Virtual Environment
+
+```bash
 python -m venv venv
-3. Activate Virtual Environment
+```
 
-Windows
+### 3. Activate the Virtual Environment
 
+#### Windows
+
+```bash
 venv\Scripts\activate
+```
 
-Linux / Mac
+#### Linux / macOS
 
+```bash
 source venv/bin/activate
-4. Install Dependencies
+```
+
+### 4. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-Usage
-Step 1: Place Excel File
+```
+
+---
+
+## Usage
+
+### Step 1: Place the Source Excel File
 
 Copy the source Excel file into the project directory.
 
-Step 2: Download Images Locally
+### Step 2: Download All Images Locally
+
+```bash
 python download_images.py
+```
 
-This will:
+This script:
+- Downloads all meter images
+- Creates the `images/` folder
+- Generates a new Excel file with local image paths
 
-Download all meter images
-Create the images/ folder
-Generate *_LOCAL.xlsx with local image paths
-Step 3: Launch Application
+### Step 3: Launch the Application
+
+```bash
 streamlit run meter_review_app.py
-Step 4: Review Entries
-View meter image
-Enter remark
-Press Enter to save and move to the next entry
+```
 
-All remarks are automatically saved to:
+### Step 4: Review Entries
 
+1. View the meter image.
+2. Enter a remark.
+3. Press **Enter** to save and automatically move to the next entry.
+
+All remarks are saved automatically.
+
+---
+
+## Output Files
+
+### Local Image Mapping File
+
+```text
+TSECL_1001101_F004_202506_LOCAL.xlsx
+```
+
+### Reviewed Output File
+
+```text
 TSECL_1001101_F004_202506_REVIEWED.xlsx
-Dependencies
-Streamlit
-Pandas
-OpenPyXL
-Pillow
+```
 
-Install manually:
+Contains all entered remarks and can be shared directly after review.
 
-pip install streamlit pandas openpyxl pillow
-Output
+---
 
-The application creates:
+## Required Python Packages
 
-Local image repository (images/)
-Excel file with image mappings (*_LOCAL.xlsx)
-Reviewed Excel file with remarks (*_REVIEWED.xlsx)
+```bash
+pip install streamlit pandas openpyxl pillow requests
+```
+
+---
+
+## Workflow Summary
+
+```text
+Excel File
+    ↓
+Download Images
+    ↓
+Store Images Locally
+    ↓
+Launch Streamlit App
+    ↓
+Review Images
+    ↓
+Enter Remarks
+    ↓
+Generate Reviewed Excel File
+```
