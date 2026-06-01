@@ -43,8 +43,8 @@ project/
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/AmoghInfinity/Excel_Automate.git
+cd Excel_Automate
 ```
 
 ### 2. Create a Virtual Environment
